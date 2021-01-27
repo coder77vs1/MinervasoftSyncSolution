@@ -11,6 +11,18 @@ namespace MinervasoftSyncApp.View
         public frmSetting()
         {
             InitializeComponent();
+
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            List<string> typeData = new List<string>
+            {
+                "WebSocket", "CustomURI"
+            };
+
+            cboServiceType.DataSource = typeData;
         }
 
         private void btnGet_Click(object sender, EventArgs e)
@@ -29,10 +41,9 @@ namespace MinervasoftSyncApp.View
 
                     if (this.dsResource1.Config.Rows.Count == 1)
                     {
-                        this.txtValue1.Text = this.dsResource1.Config[0].ServiceType;
-                        this.txtValue2.Text = this.dsResource1.Config[0].Startup;
-                        this.txtValue3.Text = this.dsResource1.Config[0].LauncherPath;
-                        this.txtValue4.Text = this.dsResource1.Config[0].SyncType;
+                        this.cboServiceType.Text = this.dsResource1.Config[0].ServiceType;
+                        this.txtLauncherPath.Text = this.dsResource1.Config[0].LauncherPath;
+                        this.txtCertificationExe.Text = this.dsResource1.Config[0].CertificationExe;
                     }
                 }
                 catch
@@ -51,10 +62,9 @@ namespace MinervasoftSyncApp.View
             {
                 if (this.dsResource1.Config.Rows.Count == 1)
                 {
-                    this.dsResource1.Config[0].ServiceType = this.txtValue1.Text;
-                    this.dsResource1.Config[0].Startup = this.txtValue2.Text;
-                    this.dsResource1.Config[0].LauncherPath = this.txtValue3.Text;
-                    this.dsResource1.Config[0].SyncType = this.txtValue4.Text;
+                    this.dsResource1.Config[0].ServiceType = this.cboServiceType.Text;
+                    this.dsResource1.Config[0].LauncherPath = this.txtLauncherPath.Text;
+                    this.dsResource1.Config[0].CertificationExe = this.txtCertificationExe.Text;
 
                     File.Delete(this.txtPath.Text);
                     this.dsResource1.WriteXml(this.txtPath.Text);
@@ -70,17 +80,10 @@ namespace MinervasoftSyncApp.View
 
         protected override void ClearControls()
         {
-            this.txtValue1.Tag = string.Empty;
-            this.txtValue1.Text = string.Empty;
-
-            this.txtValue2.Tag = string.Empty;
-            this.txtValue2.Text = string.Empty;
-
-            this.txtValue3.Tag = string.Empty;
-            this.txtValue3.Text = string.Empty;
-
-            this.txtValue4.Tag = string.Empty;
-            this.txtValue4.Text = string.Empty;
+            this.cboServiceType.Tag = string.Empty;
+            this.cboServiceType.SelectedIndex = 0;
+            this.txtLauncherPath.Text = string.Empty;
+            this.txtCertificationExe.Text = string.Empty;
         }
     }
 }

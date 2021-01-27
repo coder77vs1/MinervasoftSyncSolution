@@ -32,6 +32,24 @@ namespace MinervasoftSyncApp.View
         /// </summary>
         public string PRODUCT_RESOURCE_FILE { get; set; }
 
+        /// <summary>
+        /// 소스
+        /// </summary>
+        private List<SourceItem> sourceData { get; set; }
+
+        /// <summary>
+        /// 배포자료
+        /// </summary>
+        private List<PublishFileItem> publishData { get; set; }
+
+        /// <summary>
+        /// 등록 가능한 확장자
+        /// </summary>
+        private List<string> extensionAry { get; set; }
+
+        /// <summary>
+        /// 활성화 프로그램
+        /// </summary>
         private DSResource.ApplicationRow activeApplicationRow { get; set; }
 
         #region Initialize
@@ -42,6 +60,10 @@ namespace MinervasoftSyncApp.View
         {
             PRODUCT_RESOURCE = System.Windows.Forms.Application.StartupPath;
             PRODUCT_RESOURCE_FILE = string.Empty;
+
+            sourceData = new List<SourceItem>();
+            publishData = new List<PublishFileItem>();
+            extensionAry = new List<string>();
         }
         #endregion
 
@@ -79,10 +101,11 @@ namespace MinervasoftSyncApp.View
 
             frm.ShowDialog(this);
         }
-        #endregion
 
         private void btnGet_Click(object sender, EventArgs e)
         {
+            ClearControls();
+
             PRODUCT_RESOURCE_FILE = OpenFilePathByXml(this.ResourcePath);
 
             if (File.Exists(PRODUCT_RESOURCE_FILE))
@@ -90,8 +113,38 @@ namespace MinervasoftSyncApp.View
                 try
                 {
                     this.dsResource1.Clear();
+                    this.extensionAry = new List<string>();
 
                     this.dsResource1.ReadXml(PRODUCT_RESOURCE_FILE);
+
+                    if (this.dsResource1.Config.Rows.Count > 0)
+                    {
+                        var obj = this.dsResource1.Config[0].CertificationExe;
+                        var ary = obj.Split(';');
+
+                        foreach (var item in ary)
+                        {
+                            if (string.IsNullOrEmpty(item.Trim()) == false)
+                            {
+                                this.extensionAry.Add(item.Trim());
+                            }
+                        }
+                    }
+
+                    if (this.extensionAry.Count == 0)
+                    {
+                        MessageBox.Show("등록 가능한 확장자 정보가 없습니다.");
+                        return;
+                    }
+
+                    if (this.dsResource1.Application.Rows.Count == 0)
+                    {
+                        MessageBox.Show("등록 가능한 프로그램 정보가 없습니다.");
+                        return;
+                    }
+
+                    //프로그램 가져오기
+                    GetResourceData();
                 }
                 catch
                 {
@@ -118,6 +171,8 @@ namespace MinervasoftSyncApp.View
             txtReleasePath.Text = activeApplicationRow.ReleasePath;
         }
 
+        #endregion
+
         protected override void ClearControls()
         {
             this.txtApplicationId.Tag = string.Empty;
@@ -129,5 +184,121 @@ namespace MinervasoftSyncApp.View
             this.txtClientPath.Text = string.Empty;
             this.txtReleasePath.Text = string.Empty;
         }
+
+        #region Mothed
+
+        /// <summary>
+        /// 프로그램 가져오기
+        /// </summary>
+        private void GetResourceData()
+        {
+            try
+            {
+                sourceData = new List<SourceItem>();
+                publishData = new List<PublishFileItem>();
+
+                this.dataGridView1.DataSource = null;
+
+                foreach (var row in this.dsResource1.Application)
+                {
+                    GetResourceItems(row);
+                }
+
+                this.dataGridView1.DataSource = sourceData;
+
+                this.dataGridView1.Columns[0].ReadOnly = true;
+                this.dataGridView1.Columns[0].Width = 200;
+                this.dataGridView1.Columns[1].ReadOnly = true;
+                this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                this.dataGridView1.Columns[2].Width = 50;
+                this.dataGridView1.Columns[3].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void GetResourceItems(DSResource.ApplicationRow row)
+        {
+            string[] dirs = Directory.GetDirectories(row.ReleasePath);
+
+            foreach (string dir in dirs)
+            {
+                string[] dirsEx = Directory.GetDirectories(dir);
+
+                addSourceItem(dir);
+
+                foreach (string dir2 in dirsEx)
+                {
+                    addSourceItem(dir2);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 확장자 체크
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private bool checkExtension(string path)
+        {
+            bool result = false;
+
+            string ext = Path.GetExtension(path);
+
+            if (string.IsNullOrEmpty(ext))
+            {
+                result = true;
+            }
+            else
+            {
+                var ary = this.extensionAry.FindAll(x => x.ToLower().Equals(ext, StringComparison.CurrentCultureIgnoreCase));
+                result = (ary.Count > 0) ? true : false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 객체에 파일 추가
+        /// </summary>
+        /// <param name="dir"></param>
+        private void addSourceItem(string dir)
+        {
+            //제외 대상 폴더 명
+            if (dir.IndexOf(".") == 0 || dir.IndexOf("svn") > 0) return;
+
+            var files = Directory.GetFiles(dir);
+
+            foreach (var item in files)
+            {
+                if (checkExtension(item))
+                {
+                    sourceData.Add(new SourceItem
+                    {
+                        FileName = Path.GetFileName(item),
+                        CurrentPath = item
+                    });
+                }
+            }
+        }
+
+        private void addSpecialItem(string dir, string filename, string specialFileType)
+        {
+            string path = Path.Combine(dir, filename);
+
+            if (File.Exists(path))
+            {
+                sourceData.Add(new SourceItem
+                {
+                    FileName = Path.GetFileName(path),
+                    CurrentPath = path,
+                    SpecialFileType = specialFileType
+                });
+            }
+        }
+
+        #endregion
     }
 }

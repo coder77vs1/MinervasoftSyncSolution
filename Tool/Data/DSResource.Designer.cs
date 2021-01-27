@@ -999,11 +999,9 @@ namespace MinervasoftSyncApp.Data {
             
             private global::System.Data.DataColumn columnServiceType;
             
-            private global::System.Data.DataColumn columnStartup;
-            
             private global::System.Data.DataColumn columnLauncherPath;
             
-            private global::System.Data.DataColumn columnSyncType;
+            private global::System.Data.DataColumn columnCertificationExe;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1048,14 +1046,6 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn StartupColumn {
-                get {
-                    return this.columnStartup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn LauncherPathColumn {
                 get {
                     return this.columnLauncherPath;
@@ -1064,9 +1054,9 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SyncTypeColumn {
+            public global::System.Data.DataColumn CertificationExeColumn {
                 get {
-                    return this.columnSyncType;
+                    return this.columnCertificationExe;
                 }
             }
             
@@ -1107,13 +1097,12 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ConfigRow AddConfigRow(string ServiceType, string Startup, string LauncherPath, string SyncType) {
+            public ConfigRow AddConfigRow(string ServiceType, string LauncherPath, string CertificationExe) {
                 ConfigRow rowConfigRow = ((ConfigRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ServiceType,
-                        Startup,
                         LauncherPath,
-                        SyncType};
+                        CertificationExe};
                 rowConfigRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfigRow);
                 return rowConfigRow;
@@ -1137,9 +1126,8 @@ namespace MinervasoftSyncApp.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnServiceType = base.Columns["ServiceType"];
-                this.columnStartup = base.Columns["Startup"];
                 this.columnLauncherPath = base.Columns["LauncherPath"];
-                this.columnSyncType = base.Columns["SyncType"];
+                this.columnCertificationExe = base.Columns["CertificationExe"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1147,14 +1135,11 @@ namespace MinervasoftSyncApp.Data {
             private void InitClass() {
                 this.columnServiceType = new global::System.Data.DataColumn("ServiceType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnServiceType);
-                this.columnStartup = new global::System.Data.DataColumn("Startup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStartup);
                 this.columnLauncherPath = new global::System.Data.DataColumn("LauncherPath", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLauncherPath);
-                this.columnSyncType = new global::System.Data.DataColumn("SyncType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSyncType);
+                this.columnCertificationExe = new global::System.Data.DataColumn("CertificationExe", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCertificationExe);
                 this.columnServiceType.Caption = "실행형식";
-                this.columnStartup.Caption = "총 프로그램 수";
                 this.columnLauncherPath.Caption = "런처 설치 위치";
             }
             
@@ -1708,22 +1693,6 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Startup {
-                get {
-                    try {
-                        return ((string)(this[this.tableConfig.StartupColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'Config\' 테이블의 \'Startup\' 열의 값이 DBNull입니다.", e);
-                    }
-                }
-                set {
-                    this[this.tableConfig.StartupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string LauncherPath {
                 get {
                     try {
@@ -1740,17 +1709,17 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string SyncType {
+            public string CertificationExe {
                 get {
                     try {
-                        return ((string)(this[this.tableConfig.SyncTypeColumn]));
+                        return ((string)(this[this.tableConfig.CertificationExeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'Config\' 테이블의 \'SyncType\' 열의 값이 DBNull입니다.", e);
+                        throw new global::System.Data.StrongTypingException("\'Config\' 테이블의 \'CertificationExe\' 열의 값이 DBNull입니다.", e);
                     }
                 }
                 set {
-                    this[this.tableConfig.SyncTypeColumn] = value;
+                    this[this.tableConfig.CertificationExeColumn] = value;
                 }
             }
             
@@ -1768,18 +1737,6 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsStartupNull() {
-                return this.IsNull(this.tableConfig.StartupColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetStartupNull() {
-                this[this.tableConfig.StartupColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsLauncherPathNull() {
                 return this.IsNull(this.tableConfig.LauncherPathColumn);
             }
@@ -1792,14 +1749,14 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSyncTypeNull() {
-                return this.IsNull(this.tableConfig.SyncTypeColumn);
+            public bool IsCertificationExeNull() {
+                return this.IsNull(this.tableConfig.CertificationExeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSyncTypeNull() {
-                this[this.tableConfig.SyncTypeColumn] = global::System.Convert.DBNull;
+            public void SetCertificationExeNull() {
+                this[this.tableConfig.CertificationExeColumn] = global::System.Convert.DBNull;
             }
         }
         

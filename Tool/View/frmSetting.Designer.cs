@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetting));
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
-            System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetting));
+            System.Windows.Forms.Label label2;
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.lblFileName = new System.Windows.Forms.ToolStripLabel();
             this.btnGet = new System.Windows.Forms.ToolStripButton();
@@ -40,18 +40,47 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.dsResource1 = new MinervasoftSyncApp.Data.DSResource();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtValue4 = new System.Windows.Forms.TextBox();
-            this.txtValue3 = new System.Windows.Forms.TextBox();
-            this.txtValue2 = new System.Windows.Forms.TextBox();
-            this.txtValue1 = new System.Windows.Forms.TextBox();
+            this.txtCertificationExe = new System.Windows.Forms.TextBox();
+            this.txtLauncherPath = new System.Windows.Forms.TextBox();
+            this.cboServiceType = new System.Windows.Forms.ComboBox();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsResource1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
+            label4.Location = new System.Drawing.Point(13, 65);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(98, 17);
+            label4.TabIndex = 11;
+            label4.Text = "CertificationExe";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
+            label3.Location = new System.Drawing.Point(22, 40);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(89, 17);
+            label3.TabIndex = 7;
+            label3.Text = "LauncherPath";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
+            label1.Location = new System.Drawing.Point(34, 14);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 17);
+            label1.TabIndex = 5;
+            label1.Text = "ServiceType";
             // 
             // toolStrip1
             // 
@@ -114,101 +143,61 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.txtValue4);
-            this.panel1.Controls.Add(label4);
-            this.panel1.Controls.Add(this.txtValue3);
-            this.panel1.Controls.Add(this.txtValue2);
-            this.panel1.Controls.Add(this.txtValue1);
-            this.panel1.Controls.Add(label3);
+            this.panel1.Controls.Add(this.cboServiceType);
             this.panel1.Controls.Add(label2);
+            this.panel1.Controls.Add(this.txtCertificationExe);
+            this.panel1.Controls.Add(label4);
+            this.panel1.Controls.Add(this.txtLauncherPath);
+            this.panel1.Controls.Add(label3);
             this.panel1.Controls.Add(label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 423);
+            this.panel1.Size = new System.Drawing.Size(800, 160);
             this.panel1.TabIndex = 9;
             // 
-            // txtValue4
+            // txtCertificationExe
             // 
-            this.txtValue4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtCertificationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValue4.Location = new System.Drawing.Point(115, 92);
-            this.txtValue4.Name = "txtValue4";
-            this.txtValue4.Size = new System.Drawing.Size(673, 21);
-            this.txtValue4.TabIndex = 12;
+            this.txtCertificationExe.Location = new System.Drawing.Point(115, 65);
+            this.txtCertificationExe.Multiline = true;
+            this.txtCertificationExe.Name = "txtCertificationExe";
+            this.txtCertificationExe.Size = new System.Drawing.Size(673, 66);
+            this.txtCertificationExe.TabIndex = 12;
             // 
-            // label4
+            // txtLauncherPath
             // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label4.Location = new System.Drawing.Point(48, 92);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(63, 17);
-            label4.TabIndex = 11;
-            label4.Text = "SyncType";
-            // 
-            // txtValue3
-            // 
-            this.txtValue3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtLauncherPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValue3.Location = new System.Drawing.Point(115, 65);
-            this.txtValue3.Name = "txtValue3";
-            this.txtValue3.Size = new System.Drawing.Size(673, 21);
-            this.txtValue3.TabIndex = 10;
-            // 
-            // txtValue2
-            // 
-            this.txtValue2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValue2.Location = new System.Drawing.Point(115, 38);
-            this.txtValue2.Name = "txtValue2";
-            this.txtValue2.Size = new System.Drawing.Size(673, 21);
-            this.txtValue2.TabIndex = 9;
-            // 
-            // txtValue1
-            // 
-            this.txtValue1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValue1.Location = new System.Drawing.Point(115, 11);
-            this.txtValue1.Name = "txtValue1";
-            this.txtValue1.Size = new System.Drawing.Size(673, 21);
-            this.txtValue1.TabIndex = 8;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label3.Location = new System.Drawing.Point(22, 65);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(89, 17);
-            label3.TabIndex = 7;
-            label3.Text = "LauncherPath";
+            this.txtLauncherPath.Location = new System.Drawing.Point(115, 38);
+            this.txtLauncherPath.Name = "txtLauncherPath";
+            this.txtLauncherPath.Size = new System.Drawing.Size(673, 21);
+            this.txtLauncherPath.TabIndex = 10;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label2.Location = new System.Drawing.Point(60, 38);
+            label2.Location = new System.Drawing.Point(112, 134);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(51, 17);
-            label2.TabIndex = 6;
-            label2.Text = "Startup";
+            label2.Size = new System.Drawing.Size(301, 17);
+            label2.TabIndex = 13;
+            label2.Text = "예 : .dll;.exe;.config;.db;  < 항목 추가 시 ; 로 연결";
             // 
-            // label1
+            // cboServiceType
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label1.Location = new System.Drawing.Point(34, 11);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(77, 17);
-            label1.TabIndex = 5;
-            label1.Text = "ServiceType";
+            this.cboServiceType.FormattingEnabled = true;
+            this.cboServiceType.Location = new System.Drawing.Point(115, 12);
+            this.cboServiceType.Name = "cboServiceType";
+            this.cboServiceType.Size = new System.Drawing.Size(230, 20);
+            this.cboServiceType.TabIndex = 20;
             // 
             // frmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 187);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmSetting";
@@ -232,9 +221,8 @@
         private System.Windows.Forms.ToolStripButton btnSave;
         private Data.DSResource dsResource1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtValue4;
-        private System.Windows.Forms.TextBox txtValue3;
-        private System.Windows.Forms.TextBox txtValue2;
-        private System.Windows.Forms.TextBox txtValue1;
+        private System.Windows.Forms.TextBox txtCertificationExe;
+        private System.Windows.Forms.TextBox txtLauncherPath;
+        private System.Windows.Forms.ComboBox cboServiceType;
     }
 }

@@ -60,6 +60,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSResource.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Data\ProcessItem.cs" />
+    <Compile Include="Data\PublishData.cs" />
+    <Compile Include="Data\PublishFileItem.cs" />
+    <Compile Include="Data\SourceItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\frmApplication.cs">
