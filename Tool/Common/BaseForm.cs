@@ -9,9 +9,7 @@ namespace MinervasoftSyncApp.Common
     public class BaseForm : Form
     {
         protected virtual void ClearControls() { }
-
         public string ResourcePath { get; set; }
-
         protected string JsonSerizlizer<T>(T t)
         {
             DataContractJsonSerializer s = new DataContractJsonSerializer(typeof(T));
@@ -30,6 +28,23 @@ namespace MinervasoftSyncApp.Common
             T t = (T)s.ReadObject(m);
 
             return t;
+        }
+
+        protected string OpenFilePathByXml(string dir)
+        {
+            string result = string.Empty;
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Get Resource File";
+            ofd.InitialDirectory = dir;
+            ofd.Filter = "XML Files (*.xml) | *.xml";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                result = ofd.FileName;
+            }
+
+            return result;
         }
     }
 }

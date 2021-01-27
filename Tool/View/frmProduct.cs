@@ -39,7 +39,9 @@ namespace MinervasoftSyncApp.View
         {
             ClearControls();
 
-            this.txtPath.Text = this.ResourcePath;
+            this.txtPath.Text = OpenFilePathByXml(this.ResourcePath);
+
+            if (string.IsNullOrEmpty(this.txtPath.Text)) return;
 
             this.dsResource1.Clear();
 
@@ -107,7 +109,7 @@ namespace MinervasoftSyncApp.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.dsResource1.Product.Count == 0)
+            if (string.IsNullOrEmpty(this.txtPath.Text))
                 return;
 
             this.dataGridView2.EndEdit();
@@ -115,8 +117,8 @@ namespace MinervasoftSyncApp.View
 
             try
             {
-                File.Delete(this.ResourcePath);
-                this.dsResource1.WriteXml(this.ResourcePath);
+                File.Delete(this.txtPath.Text);
+                this.dsResource1.WriteXml(this.txtPath.Text);
 
                 MessageBox.Show("SUCCESS");
             }

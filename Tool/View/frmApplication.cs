@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace MinervasoftSyncApp.View
 {
@@ -10,24 +11,30 @@ namespace MinervasoftSyncApp.View
         public frmApplication()
         {
             InitializeComponent();
+
+            InitializeData();
+        }
+
+        private void InitializeData()
+        {
+            List<string> typeData = new List<string>
+            { 
+                "Application", "Resource"
+            };
+
+            cboApplicationType.DataSource = typeData;
         }
 
         protected override void ClearControls()
         {
             this.txtApplicationId.Tag = string.Empty;
             this.txtApplicationId.Text = string.Empty;
-
-            this.txtApplicationName.Tag = string.Empty;
             this.txtApplicationName.Text = string.Empty;
-
-            this.txtApplicationPath.Tag = string.Empty;
-            this.txtApplicationPath.Text = string.Empty;
-
-            this.txtApplicationKey.Tag = string.Empty;
+            this.txtServerUrl.Text = string.Empty;
+            this.txtClientPath.Text = string.Empty;
+            this.txtReleasePath.Text = string.Empty;
             this.txtApplicationKey.Text = string.Empty;
-
-            this.txtUseYn.Tag = string.Empty;
-            this.txtUseYn.Text = string.Empty;
+            this.cboApplicationType.SelectedIndex = 0;
         }
 
         #region Events
@@ -36,7 +43,9 @@ namespace MinervasoftSyncApp.View
         {
             ClearControls();
 
-            this.txtPath.Text = this.ResourcePath;
+            this.txtPath.Text = OpenFilePathByXml(this.ResourcePath);
+
+            if (string.IsNullOrEmpty(this.txtPath.Text)) return;
 
             this.dsResource1.Clear();
 
@@ -69,9 +78,11 @@ namespace MinervasoftSyncApp.View
                 this.dsResource1.Application.AddApplicationRow(
                         txtApplicationId.Text.Trim(),
                         txtApplicationName.Text.Trim(),
-                        txtApplicationPath.Text.Trim(),
                         txtApplicationKey.Text.Trim(),
-                        txtUseYn.Text.Trim()
+                        cboApplicationType.Text,
+                        txtServerUrl.Text.Trim(),
+                        txtClientPath.Text.Trim(),
+                        txtReleasePath.Text.Trim()
                     );
             }
             else
@@ -79,9 +90,11 @@ namespace MinervasoftSyncApp.View
                 var rowIndex = Convert.ToInt32(txtApplicationId.Tag);
                 this.dsResource1.Application[rowIndex].ApplicationId = txtApplicationId.Text;
                 this.dsResource1.Application[rowIndex].ApplicationName = txtApplicationName.Text;
-                this.dsResource1.Application[rowIndex].ApplicationPath = txtApplicationPath.Text;
                 this.dsResource1.Application[rowIndex].ApplicationKey = txtApplicationKey.Text;
-                this.dsResource1.Application[rowIndex].UseYn = txtUseYn.Text;
+                this.dsResource1.Application[rowIndex].ApplicationType = cboApplicationType.Text;
+                this.dsResource1.Application[rowIndex].ServerUrl = txtServerUrl.Text;
+                this.dsResource1.Application[rowIndex].ClientPath = txtClientPath.Text;
+                this.dsResource1.Application[rowIndex].ReleasePath = txtReleasePath.Text;
             }
 
             ClearControls();
@@ -94,7 +107,7 @@ namespace MinervasoftSyncApp.View
                 var rowIndex = this.dataGridView2.SelectedRows[0].Index;
 
                 this.dataGridView2.ClearSelection();
-                this.dsResource1.Product[rowIndex].Delete();
+                this.dsResource1.Application[rowIndex].Delete();
 
                 ClearControls();
             }
@@ -102,7 +115,7 @@ namespace MinervasoftSyncApp.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.dsResource1.Product.Count == 0)
+            if (string.IsNullOrEmpty(this.txtPath.Text))
                 return;
 
             this.dataGridView2.EndEdit();
@@ -110,8 +123,8 @@ namespace MinervasoftSyncApp.View
 
             try
             {
-                File.Delete(this.ResourcePath);
-                this.dsResource1.WriteXml(this.ResourcePath);
+                File.Delete(this.txtPath.Text);
+                this.dsResource1.WriteXml(this.txtPath.Text);
 
                 MessageBox.Show("SUCCESS");
             }
@@ -130,9 +143,11 @@ namespace MinervasoftSyncApp.View
             txtApplicationId.Tag = e.RowIndex;
             txtApplicationId.Text = this.dsResource1.Application[e.RowIndex].ApplicationId;
             txtApplicationName.Text = this.dsResource1.Application[e.RowIndex].ApplicationName;
-            txtApplicationPath.Text = this.dsResource1.Application[e.RowIndex].ApplicationPath;
             txtApplicationKey.Text = this.dsResource1.Application[e.RowIndex].ApplicationKey;
-            txtUseYn.Text = this.dsResource1.Application[e.RowIndex].UseYn;
+            cboApplicationType.Text = this.dsResource1.Application[e.RowIndex].ApplicationType;
+            txtServerUrl.Text = this.dsResource1.Application[e.RowIndex].ServerUrl;
+            txtClientPath.Text = this.dsResource1.Application[e.RowIndex].ServerUrl;
+            txtReleasePath.Text = this.dsResource1.Application[e.RowIndex].ReleasePath;
         }
 
         #endregion
