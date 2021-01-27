@@ -7,9 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ScanLauncher")]
 [assembly: AssemblyDescription("ScanStation Launcher Application")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Minervasoft")]
 [assembly: AssemblyProduct("ScanLauncher")]
-[assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
