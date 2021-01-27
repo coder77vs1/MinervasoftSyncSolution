@@ -10,7 +10,7 @@ namespace MinervasoftSyncApp.Common
     public class BaseForm : Form
     {
         protected virtual void ClearControls() { }
-        public string ResourcePath { get; set; }
+        public string ResourcePath { get; set; } 
 
         protected string OpenFilePathByXml(string dir)
         {
