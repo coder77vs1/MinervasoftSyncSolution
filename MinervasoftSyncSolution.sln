@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Solution", "02_Solution", "{7F5F32D8-7A8D-4995-8B24-B73F237C172F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Common", "01_Common", "{FB71CCA4-642B-45E8-B5DF-2A4BD5E29494}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Launcher", "03_Launcher", "{3A4575C4-4A44-4AE7-BC8B-C3223ACEA4C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Tools", "04_Tools", "{282BB308-F185-4A0B-BF51-5F0044A6D070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minervasoft.Sync.Common", "Common\Minervasoft.Sync.Common.csproj", "{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minervasoft.Sync.Interface", "Interface\Minervasoft.Sync.Interface.csproj", "{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinervasoftSyncApp", "Tool\MinervasoftSyncApp.csproj", "{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanLauncher", "Launcher\ScanLauncher.csproj", "{4225A41C-4B33-4353-AB2B-3790924F73F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CODER77|Any CPU = CODER77|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}.CODER77|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}.CODER77|Any CPU.Build.0 = Release|Any CPU
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}.CODER77|Any CPU.ActiveCfg = Release|Any CPU
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}.CODER77|Any CPU.Build.0 = Release|Any CPU
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}.CODER77|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}.CODER77|Any CPU.Build.0 = Release|Any CPU
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4225A41C-4B33-4353-AB2B-3790924F73F7}.CODER77|Any CPU.ActiveCfg = CODER77|Any CPU
+		{4225A41C-4B33-4353-AB2B-3790924F73F7}.CODER77|Any CPU.Build.0 = CODER77|Any CPU
+		{4225A41C-4B33-4353-AB2B-3790924F73F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4225A41C-4B33-4353-AB2B-3790924F73F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4225A41C-4B33-4353-AB2B-3790924F73F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4225A41C-4B33-4353-AB2B-3790924F73F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC2E5B81-CFB2-48E1-918C-2B1B41375DDE} = {FB71CCA4-642B-45E8-B5DF-2A4BD5E29494}
+		{0E02837A-8F57-4CAE-A65C-CEF8E4BB33A4} = {FB71CCA4-642B-45E8-B5DF-2A4BD5E29494}
+		{8D3C171A-8678-4A6F-B6AA-D1B862F07E21} = {282BB308-F185-4A0B-BF51-5F0044A6D070}
+		{4225A41C-4B33-4353-AB2B-3790924F73F7} = {3A4575C4-4A44-4AE7-BC8B-C3223ACEA4C2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A8536E1-2531-45E8-A773-AF6715F16E14}
+	EndGlobalSection
+EndGlobal

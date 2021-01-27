@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="yes"?>
+<DSResource xmlns="http://tempuri.org/DSResource.xsd">
+  <Product>
+    <ProductId>MagicOCR</ProductId>
+    <ProductName>MagicOCR</ProductName>
+    <InstallName>MagicOCR</InstallName>
+    <InstallPath>C:\Program Files (x86)\Minervasoft\MagicOCR\MagicImage</InstallPath>
+    <CheckFileName>uninst.exe</CheckFileName>
+    <CheckDate>2020-09-25</CheckDate>
+  </Product>
+  <Product>
+    <ProductId>FormReg</ProductId>
+    <ProductName>FormReg</ProductName>
+    <InstallName>FormReg</InstallName>
+    <InstallPath>C:\Program Files (x86)\Minervasoft\FormReg</InstallPath>
+    <CheckFileName>FormReg</CheckFileName>
+    <CheckDate>2020-09-11</CheckDate>
+  </Product>
+  <Product>
+    <ProductId>MagicIDCard</ProductId>
+    <ProductName>MagicIDCard</ProductName>
+    <InstallName>MagicIDCard</InstallName>
+    <InstallPath>C:\Program Files (x86)\Minervasoft\MagicIDCard(x86)</InstallPath>
+    <CheckFileName>uninst.exe</CheckFileName>
+    <CheckDate>2020-10-19</CheckDate>
+  </Product>
+  <Product>
+    <ProductId>MagicView</ProductId>
+    <ProductName>MagicView</ProductName>
+    <InstallName>MagicView</InstallName>
+    <InstallPath>C:\Program Files (x86)\Minervasoft\MagicView</InstallPath>
+    <CheckFileName>MagicView</CheckFileName>
+    <CheckDate>2020-06-02</CheckDate>
+  </Product>
+  <Product>
+    <ProductId>P2I</ProductId>
+    <ProductName>P2I</ProductName>
+    <InstallName>P2I</InstallName>
+    <InstallPath>C:\Program Files (x86)\Minervasoft\P2I</InstallPath>
+    <CheckFileName>uninst.exe</CheckFileName>
+    <CheckDate>2020-07-09</CheckDate>
+  </Product>
+  <Application>
+    <ApplicationId>ScanStation</ApplicationId>
+    <ApplicationName>ScanStation</ApplicationName>
+    <ApplicationPath>E:\01_Solution\2021\01_미네르바_배포\Source\ScanStationAll_20210113(최종적용소스)\ScanStation\ScanStation.App\bin\Debug</ApplicationPath>
+    <ApplicationKey>SS1</ApplicationKey>
+    <UseYn>Y</UseYn>
+  </Application>
+</DSResource>
