@@ -52,6 +52,9 @@
     <Compile Include="Common\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Data\DSResource.cs">
+      <DependentUpon>DSResource.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Data\DSResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

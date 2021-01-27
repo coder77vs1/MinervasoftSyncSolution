@@ -146,7 +146,7 @@ namespace MinervasoftSyncApp.View
             txtApplicationKey.Text = this.dsResource1.Application[e.RowIndex].ApplicationKey;
             cboApplicationType.Text = this.dsResource1.Application[e.RowIndex].ApplicationType;
             txtServerUrl.Text = this.dsResource1.Application[e.RowIndex].ServerUrl;
-            txtClientPath.Text = this.dsResource1.Application[e.RowIndex].ServerUrl;
+            txtClientPath.Text = this.dsResource1.Application[e.RowIndex].ClientPath;
             txtReleasePath.Text = this.dsResource1.Application[e.RowIndex].ReleasePath;
         }
 

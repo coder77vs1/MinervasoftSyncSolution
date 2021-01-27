@@ -34,14 +34,14 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApplication));
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.lblFileName = new System.Windows.Forms.ToolStripLabel();
             this.btnGet = new System.Windows.Forms.ToolStripButton();
             this.txtPath = new System.Windows.Forms.ToolStripTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtUseYn = new System.Windows.Forms.TextBox();
             this.txtApplicationKey = new System.Windows.Forms.TextBox();
-            this.txtApplicationPath = new System.Windows.Forms.TextBox();
             this.txtApplicationName = new System.Windows.Forms.TextBox();
             this.txtApplicationId = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -53,15 +53,19 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.applicationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applicationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applicationPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applicationKeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.useYnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dsResource1 = new MinervasoftSyncApp.Data.DSResource();
+            this.txtClientPath = new System.Windows.Forms.TextBox();
+            this.txtReleasePath = new System.Windows.Forms.TextBox();
+            this.txtServerUrl = new System.Windows.Forms.TextBox();
+            this.cboApplicationType = new System.Windows.Forms.ComboBox();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -73,31 +77,31 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label5.Location = new System.Drawing.Point(66, 119);
+            label5.Location = new System.Drawing.Point(49, 119);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(45, 17);
+            label5.Size = new System.Drawing.Size(62, 17);
             label5.TabIndex = 13;
-            label5.Text = "UseYn";
+            label5.Text = "ServerUrl";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label4.Location = new System.Drawing.Point(15, 92);
+            label4.Location = new System.Drawing.Point(8, 92);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(96, 17);
+            label4.Size = new System.Drawing.Size(103, 17);
             label4.TabIndex = 11;
-            label4.Text = "ApplicationKey";
+            label4.Text = "ApplicationType";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
-            label3.Location = new System.Drawing.Point(10, 65);
+            label3.Location = new System.Drawing.Point(15, 65);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(101, 17);
+            label3.Size = new System.Drawing.Size(96, 17);
             label3.TabIndex = 7;
-            label3.Text = "ApplicationPath";
+            label3.Text = "ApplicationKey";
             // 
             // label2
             // 
@@ -161,11 +165,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.txtUseYn);
+            this.panel1.Controls.Add(this.cboApplicationType);
+            this.panel1.Controls.Add(this.txtReleasePath);
+            this.panel1.Controls.Add(label7);
+            this.panel1.Controls.Add(this.txtClientPath);
+            this.panel1.Controls.Add(label6);
+            this.panel1.Controls.Add(this.txtServerUrl);
             this.panel1.Controls.Add(label5);
-            this.panel1.Controls.Add(this.txtApplicationKey);
             this.panel1.Controls.Add(label4);
-            this.panel1.Controls.Add(this.txtApplicationPath);
+            this.panel1.Controls.Add(this.txtApplicationKey);
             this.panel1.Controls.Add(this.txtApplicationName);
             this.panel1.Controls.Add(this.txtApplicationId);
             this.panel1.Controls.Add(label3);
@@ -174,35 +182,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 147);
+            this.panel1.Size = new System.Drawing.Size(800, 257);
             this.panel1.TabIndex = 8;
-            // 
-            // txtUseYn
-            // 
-            this.txtUseYn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUseYn.Location = new System.Drawing.Point(115, 119);
-            this.txtUseYn.Name = "txtUseYn";
-            this.txtUseYn.Size = new System.Drawing.Size(673, 21);
-            this.txtUseYn.TabIndex = 14;
             // 
             // txtApplicationKey
             // 
             this.txtApplicationKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApplicationKey.Location = new System.Drawing.Point(115, 92);
+            this.txtApplicationKey.Location = new System.Drawing.Point(115, 65);
             this.txtApplicationKey.Name = "txtApplicationKey";
             this.txtApplicationKey.Size = new System.Drawing.Size(673, 21);
-            this.txtApplicationKey.TabIndex = 12;
-            // 
-            // txtApplicationPath
-            // 
-            this.txtApplicationPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApplicationPath.Location = new System.Drawing.Point(115, 65);
-            this.txtApplicationPath.Name = "txtApplicationPath";
-            this.txtApplicationPath.Size = new System.Drawing.Size(673, 21);
-            this.txtApplicationPath.TabIndex = 10;
+            this.txtApplicationKey.TabIndex = 10;
             // 
             // txtApplicationName
             // 
@@ -230,7 +220,7 @@
             this.btnUpdate,
             this.btnSave,
             this.btnDelete});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 174);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 284);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(800, 27);
             this.toolStrip2.TabIndex = 9;
@@ -299,13 +289,11 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.applicationIdDataGridViewTextBoxColumn,
             this.applicationNameDataGridViewTextBoxColumn,
-            this.applicationPathDataGridViewTextBoxColumn,
-            this.applicationKeyDataGridViewTextBoxColumn,
-            this.useYnDataGridViewTextBoxColumn});
+            this.applicationKeyDataGridViewTextBoxColumn});
             this.dataGridView2.DataMember = "Application";
             this.dataGridView2.DataSource = this.dsResource1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 201);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 311);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -316,7 +304,7 @@
             this.dataGridView2.ShowCellToolTips = false;
             this.dataGridView2.ShowEditingIcon = false;
             this.dataGridView2.ShowRowErrors = false;
-            this.dataGridView2.Size = new System.Drawing.Size(800, 249);
+            this.dataGridView2.Size = new System.Drawing.Size(800, 201);
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
@@ -335,13 +323,6 @@
             this.applicationNameDataGridViewTextBoxColumn.Name = "applicationNameDataGridViewTextBoxColumn";
             this.applicationNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // applicationPathDataGridViewTextBoxColumn
-            // 
-            this.applicationPathDataGridViewTextBoxColumn.DataPropertyName = "ApplicationPath";
-            this.applicationPathDataGridViewTextBoxColumn.HeaderText = "ApplicationPath";
-            this.applicationPathDataGridViewTextBoxColumn.Name = "applicationPathDataGridViewTextBoxColumn";
-            this.applicationPathDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // applicationKeyDataGridViewTextBoxColumn
             // 
             this.applicationKeyDataGridViewTextBoxColumn.DataPropertyName = "ApplicationKey";
@@ -349,23 +330,71 @@
             this.applicationKeyDataGridViewTextBoxColumn.Name = "applicationKeyDataGridViewTextBoxColumn";
             this.applicationKeyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // useYnDataGridViewTextBoxColumn
-            // 
-            this.useYnDataGridViewTextBoxColumn.DataPropertyName = "UseYn";
-            this.useYnDataGridViewTextBoxColumn.HeaderText = "UseYn";
-            this.useYnDataGridViewTextBoxColumn.Name = "useYnDataGridViewTextBoxColumn";
-            this.useYnDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // dsResource1
             // 
             this.dsResource1.DataSetName = "DSResource";
             this.dsResource1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // txtClientPath
+            // 
+            this.txtClientPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClientPath.Location = new System.Drawing.Point(115, 146);
+            this.txtClientPath.Name = "txtClientPath";
+            this.txtClientPath.Size = new System.Drawing.Size(673, 21);
+            this.txtClientPath.TabIndex = 16;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
+            label6.Location = new System.Drawing.Point(44, 146);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(67, 17);
+            label6.TabIndex = 15;
+            label6.Text = "ClientPath";
+            // 
+            // txtReleasePath
+            // 
+            this.txtReleasePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtReleasePath.Location = new System.Drawing.Point(115, 173);
+            this.txtReleasePath.Name = "txtReleasePath";
+            this.txtReleasePath.Size = new System.Drawing.Size(673, 21);
+            this.txtReleasePath.TabIndex = 18;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(129)));
+            label7.Location = new System.Drawing.Point(32, 173);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(79, 17);
+            label7.TabIndex = 17;
+            label7.Text = "ReleasePath";
+            // 
+            // txtServerUrl
+            // 
+            this.txtServerUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtServerUrl.Location = new System.Drawing.Point(115, 119);
+            this.txtServerUrl.Name = "txtServerUrl";
+            this.txtServerUrl.Size = new System.Drawing.Size(673, 21);
+            this.txtServerUrl.TabIndex = 14;
+            // 
+            // cboApplicationType
+            // 
+            this.cboApplicationType.FormattingEnabled = true;
+            this.cboApplicationType.Location = new System.Drawing.Point(115, 92);
+            this.cboApplicationType.Name = "cboApplicationType";
+            this.cboApplicationType.Size = new System.Drawing.Size(230, 20);
+            this.cboApplicationType.TabIndex = 19;
+            // 
             // frmApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 512);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.panel1);
@@ -395,9 +424,7 @@
         private System.Windows.Forms.ToolStripButton btnGet;
         private System.Windows.Forms.ToolStripTextBox txtPath;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtUseYn;
         private System.Windows.Forms.TextBox txtApplicationKey;
-        private System.Windows.Forms.TextBox txtApplicationPath;
         private System.Windows.Forms.TextBox txtApplicationName;
         private System.Windows.Forms.TextBox txtApplicationId;
         private System.Windows.Forms.ToolStrip toolStrip2;
@@ -413,5 +440,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn applicationPathDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn applicationKeyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn useYnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtReleasePath;
+        private System.Windows.Forms.TextBox txtClientPath;
+        private System.Windows.Forms.ComboBox cboApplicationType;
+        private System.Windows.Forms.TextBox txtServerUrl;
     }
 }

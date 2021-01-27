@@ -670,11 +670,15 @@ namespace MinervasoftSyncApp.Data {
             
             private global::System.Data.DataColumn columnApplicationName;
             
-            private global::System.Data.DataColumn columnApplicationPath;
-            
             private global::System.Data.DataColumn columnApplicationKey;
             
-            private global::System.Data.DataColumn columnUseYn;
+            private global::System.Data.DataColumn columnApplicationType;
+            
+            private global::System.Data.DataColumn columnServerUrl;
+            
+            private global::System.Data.DataColumn columnClientPath;
+            
+            private global::System.Data.DataColumn columnReleasePath;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -727,14 +731,6 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ApplicationPathColumn {
-                get {
-                    return this.columnApplicationPath;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn ApplicationKeyColumn {
                 get {
                     return this.columnApplicationKey;
@@ -743,9 +739,33 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UseYnColumn {
+            public global::System.Data.DataColumn ApplicationTypeColumn {
                 get {
-                    return this.columnUseYn;
+                    return this.columnApplicationType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ServerUrlColumn {
+                get {
+                    return this.columnServerUrl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ClientPathColumn {
+                get {
+                    return this.columnClientPath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ReleasePathColumn {
+                get {
+                    return this.columnReleasePath;
                 }
             }
             
@@ -786,14 +806,16 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ApplicationRow AddApplicationRow(string ApplicationId, string ApplicationName, string ApplicationPath, string ApplicationKey, string UseYn) {
+            public ApplicationRow AddApplicationRow(string ApplicationId, string ApplicationName, string ApplicationKey, string ApplicationType, string ServerUrl, string ClientPath, string ReleasePath) {
                 ApplicationRow rowApplicationRow = ((ApplicationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ApplicationId,
                         ApplicationName,
-                        ApplicationPath,
                         ApplicationKey,
-                        UseYn};
+                        ApplicationType,
+                        ServerUrl,
+                        ClientPath,
+                        ReleasePath};
                 rowApplicationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowApplicationRow);
                 return rowApplicationRow;
@@ -818,9 +840,11 @@ namespace MinervasoftSyncApp.Data {
             internal void InitVars() {
                 this.columnApplicationId = base.Columns["ApplicationId"];
                 this.columnApplicationName = base.Columns["ApplicationName"];
-                this.columnApplicationPath = base.Columns["ApplicationPath"];
                 this.columnApplicationKey = base.Columns["ApplicationKey"];
-                this.columnUseYn = base.Columns["UseYn"];
+                this.columnApplicationType = base.Columns["ApplicationType"];
+                this.columnServerUrl = base.Columns["ServerUrl"];
+                this.columnClientPath = base.Columns["ClientPath"];
+                this.columnReleasePath = base.Columns["ReleasePath"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -830,12 +854,16 @@ namespace MinervasoftSyncApp.Data {
                 base.Columns.Add(this.columnApplicationId);
                 this.columnApplicationName = new global::System.Data.DataColumn("ApplicationName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApplicationName);
-                this.columnApplicationPath = new global::System.Data.DataColumn("ApplicationPath", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApplicationPath);
                 this.columnApplicationKey = new global::System.Data.DataColumn("ApplicationKey", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApplicationKey);
-                this.columnUseYn = new global::System.Data.DataColumn("UseYn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUseYn);
+                this.columnApplicationType = new global::System.Data.DataColumn("ApplicationType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApplicationType);
+                this.columnServerUrl = new global::System.Data.DataColumn("ServerUrl", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnServerUrl);
+                this.columnClientPath = new global::System.Data.DataColumn("ClientPath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClientPath);
+                this.columnReleasePath = new global::System.Data.DataColumn("ReleasePath", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReleasePath);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1485,22 +1513,6 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ApplicationPath {
-                get {
-                    try {
-                        return ((string)(this[this.tableApplication.ApplicationPathColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'Application\' 테이블의 \'ApplicationPath\' 열의 값이 DBNull입니다.", e);
-                    }
-                }
-                set {
-                    this[this.tableApplication.ApplicationPathColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string ApplicationKey {
                 get {
                     try {
@@ -1517,17 +1529,65 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UseYn {
+            public string ApplicationType {
                 get {
                     try {
-                        return ((string)(this[this.tableApplication.UseYnColumn]));
+                        return ((string)(this[this.tableApplication.ApplicationTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'Application\' 테이블의 \'UseYn\' 열의 값이 DBNull입니다.", e);
+                        throw new global::System.Data.StrongTypingException("\'Application\' 테이블의 \'ApplicationType\' 열의 값이 DBNull입니다.", e);
                     }
                 }
                 set {
-                    this[this.tableApplication.UseYnColumn] = value;
+                    this[this.tableApplication.ApplicationTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ServerUrl {
+                get {
+                    try {
+                        return ((string)(this[this.tableApplication.ServerUrlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Application\' 테이블의 \'ServerUrl\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableApplication.ServerUrlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ClientPath {
+                get {
+                    try {
+                        return ((string)(this[this.tableApplication.ClientPathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Application\' 테이블의 \'ClientPath\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableApplication.ClientPathColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ReleasePath {
+                get {
+                    try {
+                        return ((string)(this[this.tableApplication.ReleasePathColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Application\' 테이블의 \'ReleasePath\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableApplication.ReleasePathColumn] = value;
                 }
             }
             
@@ -1557,18 +1617,6 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsApplicationPathNull() {
-                return this.IsNull(this.tableApplication.ApplicationPathColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetApplicationPathNull() {
-                this[this.tableApplication.ApplicationPathColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsApplicationKeyNull() {
                 return this.IsNull(this.tableApplication.ApplicationKeyColumn);
             }
@@ -1581,14 +1629,50 @@ namespace MinervasoftSyncApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUseYnNull() {
-                return this.IsNull(this.tableApplication.UseYnColumn);
+            public bool IsApplicationTypeNull() {
+                return this.IsNull(this.tableApplication.ApplicationTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUseYnNull() {
-                this[this.tableApplication.UseYnColumn] = global::System.Convert.DBNull;
+            public void SetApplicationTypeNull() {
+                this[this.tableApplication.ApplicationTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsServerUrlNull() {
+                return this.IsNull(this.tableApplication.ServerUrlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetServerUrlNull() {
+                this[this.tableApplication.ServerUrlColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsClientPathNull() {
+                return this.IsNull(this.tableApplication.ClientPathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetClientPathNull() {
+                this[this.tableApplication.ClientPathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReleasePathNull() {
+                return this.IsNull(this.tableApplication.ReleasePathColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReleasePathNull() {
+                this[this.tableApplication.ReleasePathColumn] = global::System.Convert.DBNull;
             }
         }
         
