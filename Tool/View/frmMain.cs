@@ -169,10 +169,18 @@ namespace MinervasoftSyncApp.View
             txtServerUrl.Text = activeApplicationRow.ServerUrl;
             txtClientPath.Text = activeApplicationRow.ServerUrl;
             txtReleasePath.Text = activeApplicationRow.ReleasePath;
+
+            //소스리스트
+            SetSourceItem(activeApplicationRow.ApplicationId);
         }
 
         #endregion
 
+        #region Mothed
+
+        /// <summary>
+        /// 컨트롤 초기화
+        /// </summary>
         protected override void ClearControls()
         {
             this.txtApplicationId.Tag = string.Empty;
@@ -184,8 +192,6 @@ namespace MinervasoftSyncApp.View
             this.txtClientPath.Text = string.Empty;
             this.txtReleasePath.Text = string.Empty;
         }
-
-        #region Mothed
 
         /// <summary>
         /// 프로그램 가져오기
@@ -204,14 +210,8 @@ namespace MinervasoftSyncApp.View
                     GetResourceItems(row);
                 }
 
-                this.dataGridView1.DataSource = sourceData;
-
-                this.dataGridView1.Columns[0].ReadOnly = true;
-                this.dataGridView1.Columns[0].Width = 200;
-                this.dataGridView1.Columns[1].ReadOnly = true;
-                this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                this.dataGridView1.Columns[2].Width = 50;
-                this.dataGridView1.Columns[3].Visible = false;
+                //소스리스트
+                SetSourceItem(this.dsResource1.Application[0].ApplicationId);
             }
             catch (Exception ex)
             {
@@ -221,19 +221,42 @@ namespace MinervasoftSyncApp.View
 
         private void GetResourceItems(DSResource.ApplicationRow row)
         {
+            addSourceItem(row.ApplicationId, row.ReleasePath);
+
             string[] dirs = Directory.GetDirectories(row.ReleasePath);
 
             foreach (string dir in dirs)
             {
                 string[] dirsEx = Directory.GetDirectories(dir);
 
-                addSourceItem(dir);
+                addSourceItem(row.ApplicationId, dir);
 
                 foreach (string dir2 in dirsEx)
                 {
-                    addSourceItem(dir2);
+                    addSourceItem(row.ApplicationId, dir2);
                 }
             }
+        }
+
+        /// <summary>
+        /// 소스리스트
+        /// </summary>
+        /// <param name="applicationId"></param>
+        private void SetSourceItem(string applicationId)
+        {
+            //this.dataGridView1.DataSource = sourceData;
+            var data = sourceData.FindAll(x => x.ApplicationId.Equals(applicationId));
+            this.dataGridView1.DataSource = data;
+
+            //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+
+            this.dataGridView1.Columns["ApplicationId"].Visible = false;
+            this.dataGridView1.Columns["FileName"].ReadOnly = true;
+            this.dataGridView1.Columns["FileName"].Width = 200;
+            this.dataGridView1.Columns["FileName"].ReadOnly = true;
+            this.dataGridView1.Columns["CurrentPath"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridView1.Columns["Use"].Width = 50;
+            this.dataGridView1.Columns["SpecialFileType"].Visible = false;
         }
 
         /// <summary>
@@ -254,7 +277,7 @@ namespace MinervasoftSyncApp.View
             else
             {
                 var ary = this.extensionAry.FindAll(x => x.ToLower().Equals(ext, StringComparison.CurrentCultureIgnoreCase));
-                result = (ary.Count > 0) ? true : false;
+                result = (ary.Count > 0);
             }
 
             return result;
@@ -264,7 +287,7 @@ namespace MinervasoftSyncApp.View
         /// 객체에 파일 추가
         /// </summary>
         /// <param name="dir"></param>
-        private void addSourceItem(string dir)
+        private void addSourceItem(string applicationId, string dir)
         {
             //제외 대상 폴더 명
             if (dir.IndexOf(".") == 0 || dir.IndexOf("svn") > 0) return;
@@ -277,28 +300,13 @@ namespace MinervasoftSyncApp.View
                 {
                     sourceData.Add(new SourceItem
                     {
+                        ApplicationId = applicationId,
                         FileName = Path.GetFileName(item),
                         CurrentPath = item
                     });
                 }
             }
         }
-
-        private void addSpecialItem(string dir, string filename, string specialFileType)
-        {
-            string path = Path.Combine(dir, filename);
-
-            if (File.Exists(path))
-            {
-                sourceData.Add(new SourceItem
-                {
-                    FileName = Path.GetFileName(path),
-                    CurrentPath = path,
-                    SpecialFileType = specialFileType
-                });
-            }
-        }
-
         #endregion
     }
 }

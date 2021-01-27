@@ -16,10 +16,12 @@ namespace MinervasoftSyncApp.Common
         {
             string result = string.Empty;
 
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Get Resource File";
-            ofd.InitialDirectory = dir;
-            ofd.Filter = "XML Files (*.xml) | *.xml";
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Get Resource File",
+                InitialDirectory = dir,
+                Filter = "XML Files (*.xml) | *.xml"
+            };
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {

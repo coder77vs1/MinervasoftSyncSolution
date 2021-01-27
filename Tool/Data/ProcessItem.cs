@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MinervasoftSyncApp.Data
+﻿namespace MinervasoftSyncApp.Data
 {
     public class ProcessItem
     {
